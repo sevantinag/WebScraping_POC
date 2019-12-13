@@ -5,7 +5,7 @@ This project requires the following packages:
 1. Download Chromedriver from:
    - For Chrome Versions 78: “https://chromedriver.storage.googleapis.com/index.html?path=78.0.3904.105/“
    - For Chrome Versions 79: "https://chromedriver.storage.googleapis.com/index.html?path=79.0.3945.36/"
-  and add the exe file as per the system's OS to the project folder (Replace if existing)
+  and add the exe file as per the system's OS to the project folder (Replacing the existing)
 2. Change the absolute path of the 'chromedriver' in 'statista_data_breach.py' LINE NO: 31
 3. Install requests
 4. Install BeautifulSoup
@@ -22,7 +22,7 @@ On Windows to successfully run nag_sevanti.ipynb file, on Anaconda Prompt naviga
 4. Install Tweepy for Twitter API usage
 5. Install Matplotlib for plotting graph
 
-To run this project, make sure the above packages are installed, and then simply clone the repo at https://github.com/sevantinag/inf510_project.git and execute this notebook
+To run this project, make sure the above packages are installed, and then simply clone the repo at https://github.com/sevantinag/inf510_project.git
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 1. What are the strengths of your data modeling format? 
