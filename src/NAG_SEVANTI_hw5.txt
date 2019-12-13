@@ -22,7 +22,7 @@ On Windows to successfully run nag_sevanti.ipynb file, on Anaconda Prompt naviga
 4. Install Tweepy for Twitter API usage
 5. Install Matplotlib for plotting graph
 
-To run this project, make sure the above packages are installed, and then simply clone the repo at https://github.com/sevantinag/inf510_project.git and execute this notebook
+To run this project, make sure the above packages are installed, and then simply clone the repo at https://github.com/sevantinag/inf510_project.git
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 1. What are the strengths of your data modeling format? 
