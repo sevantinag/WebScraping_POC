@@ -13,13 +13,15 @@ from twitter_word_search import tweet_word_search
 import sqlite3
 import matplotlib.pyplot as plt
 
-
-#creating DB connection with data_breach.db
-conn = sqlite3.connect('../data/data_breach.db')
-cur = conn.cursor()
+#global variable to be used across functions
+stored_data = tuple()
 
 #function to run when the -source runs on remote
 def grab_data_by_scraping_and_api_requests():
+    #creating DB connection with data_breach.db
+    conn = sqlite3.connect('../data/data_breach.db')
+    cur = conn.cursor()
+
     #setting variables from the returned values from classes from python files
     pwned_data = pwned_breach().get_pwned_breach_info()
     twitter_data = tweet_word_search().twitter_search()
@@ -63,13 +65,17 @@ def grab_data_by_scraping_and_api_requests():
         
     #commit the changes to DB     
     conn.commit()
-    
-    #calling function to plot graph from DB
-    grab_data_from_downloaded_raw_files()
 
-#function to plot graph from DB
-def grab_data_from_downloaded_raw_files():
+    #close DB connection
+    conn.close()
+
     
+#function to extract data from DB
+def grab_data_from_downloaded_raw_files():
+    #creating DB connection with data_breach.db
+    conn = sqlite3.connect('../data/data_breach.db')
+    cur = conn.cursor()
+
     #getting sum of all the exposed data from Have I Been Pwned DB and converting it to millions
     cur.execute('SELECT sum(BREACH_EXPOSED_DATA) as sum FROM DataBreaches')
     exposed_data_sum = cur.fetchall()
@@ -100,6 +106,17 @@ def grab_data_from_downloaded_raw_files():
         old_year_list.append(item[0])
     old_year_list.append(2019)
     
+    #close the DB connection
+    conn.close()
+
+    #returning tuple of list
+    return old_year_list, old_breach_list
+    
+#function to take returned value from previous function to plot graph
+def plot_graph(storage_data):
+
+    old_year_list = storage_data[0]
+    old_breach_list = storage_data[1]
     #Setting the size of the graph plot
     plt.figure(figsize=(10,10))
     
@@ -116,10 +133,9 @@ def grab_data_from_downloaded_raw_files():
     #setting the labels for x and y axis. Storing the plotted graph as an image
     plt.xlabel('Year')
     plt.ylabel('Data Breaches')
-    plt.show()
-    plt.savefig("breach_graph.png")
 
-    conn.close()
+    #show the plotted graph
+    plt.show()
 
 #function to decide whether the code should run on remote or local   
 def main():
@@ -128,12 +144,18 @@ def main():
     args = parser.parse_args()
     
     location = args.source
+
     if location == ['local']:
-        grab_data_from_downloaded_raw_files()
+        stored_data = grab_data_from_downloaded_raw_files()
     else:
         grab_data_by_scraping_and_api_requests()
+        stored_data = grab_data_from_downloaded_raw_files()
+
+    plot_graph(stored_data)
+    plt.savefig("breach_graph.png")
+
     
     
-#checking if the main module is running, then run the main function
+#function to run py file in command prompt/terminal
 if __name__ == "__main__":
     main()
