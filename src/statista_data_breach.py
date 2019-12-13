@@ -28,7 +28,7 @@ class statista_data_class():
             self.chrome_options.add_argument("disable-gpu")
             
             #path to Chrome Driver. This is required to be Absolute Path
-            self.driver = webdriver.Chrome(executable_path='C:/Users/arnab/Downloads/NAG_SEVANTI_hw5/NAG_SEVANTI_hw5/src/chromedriver',options=self.chrome_options)
+            self.driver = webdriver.Chrome(executable_path='/Users/sevantinag/Downloads/inf510_project/inf510_project/src/chromedriver',options=self.chrome_options)
             
             #running thr URL in the chrome driver
             self.driver.get("https://www.statista.com/statistics/273550/data-breaches-recorded-in-the-united-states-by-number-of-breaches-and-records-exposed/")

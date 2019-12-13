@@ -27,7 +27,7 @@ def grab_data_by_scraping_and_api_requests():
     twitter_data = tweet_word_search().twitter_search()
     statista_exposed_data = statista_data_class().get_statista_exposed_data()
     statista_year = statista_data_class().get_statista_year()
-        
+    
     #creating DB and inserting to store exposed data numbers from Have I Been Pwned website
     cur.execute('DROP TABLE IF EXISTS DataBreaches')
     cur.execute('CREATE TABLE DataBreaches (BREACH_ID INTEGER PRIMARY KEY AUTOINCREMENT, BREACH_EXPOSED_DATA REAL)')  
@@ -152,6 +152,8 @@ def main():
         stored_data = grab_data_from_downloaded_raw_files()
 
     plot_graph(stored_data)
+
+    #when run on command, show graph as image
     plt.savefig("breach_graph.png")
 
     

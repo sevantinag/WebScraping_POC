@@ -2,24 +2,27 @@
 * The main file NAG_SEVANTI_hw5.py is the file that is to be run. But before running the file, following environment setups are to be made:
 
 This project requires the following packages:
+1. Download Chromedriver from:
+   - For Chrome Versions 78: “https://chromedriver.storage.googleapis.com/index.html?path=78.0.3904.105/“
+   - For Chrome Versions 79: "https://chromedriver.storage.googleapis.com/index.html?path=79.0.3945.36/"
+  and add the exe file as per the system's OS to the project folder (Replace if existing)
+2. Change the absolute path of the 'chromedriver' in 'statista_data_breach.py' LINE NO: 31
+3. Install requests
+4. Install BeautifulSoup
+5. Install Selenium
+6. Install Tweepy for Twitter API usage
+7. Install Matplotlib for plotting graph
 
-Download Chromedriver from:
-For Chrome Versions 78: “https://chromedriver.storage.googleapis.com/index.html?path=78.0.3904.105/“
-For Chrome Versions 79: "https://chromedriver.storage.googleapis.com/index.html?path=79.0.3945.36/" and add the exe file to the project folder (Replace if existing)
-Change the absolute path of the 'chromedriver' in 'statista_data_breach.py' LINE NO: 31
-Run the 'chromedriver' manually if on Mac, as Mac OS does not run the exe automatically due to security settings, unless it has been run once manually
-Install requests
-Install BeautifulSoup
-Install Selenium
-Install Tweepy for Twitter API usage
-Install Matplotlib for plotting graph
-To successfully run nag_sevanti.ipynb file, on command prompt navigate to Anaconda folder ("user/usr_name/Anacona") and install the following:
 
-Install Selenium
-Install requests
-Install BeautifulSoup
-Install Tweepy for Twitter API usage
-Install Matplotlib for plotting graph
+On Windows to successfully run nag_sevanti.ipynb file, on Anaconda Prompt navigate to Anaconda folder ("C:/Users/usr_name/Anaconda") and install the following:
+
+1. Install Selenium
+2. Install requests
+3. Install BeautifulSoup
+4. Install Tweepy for Twitter API usage
+5. Install Matplotlib for plotting graph
+
+To run this project, make sure the above packages are installed, and then simply clone the repo at https://github.com/sevantinag/inf510_project.git and execute this notebook
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 1. What are the strengths of your data modeling format? 
