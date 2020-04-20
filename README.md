@@ -1,4 +1,3 @@
-# inf510_project
 The project is set to scrape websites and retreive data from API to check for companies that were breached and the number of accounts that were exposed.
 
 The main file NAG_SEVANTI_hw5.py is the file that is to be run. But before running the file, following environment setups are to be made:
